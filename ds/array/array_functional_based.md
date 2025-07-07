@@ -1,9 +1,9 @@
 ## ✅ Array Creation & Inspection
 
 - [ ] `Array.isArray()` – Checks if a value is an array.
-- [ ] `Array.of()` – Creates a new array from arguments.
+- [x] `Array.of()` – Creates a new array from arguments.
 - [ ] `Array.from()` – Creates an array from iterable or array-like objects.
-- [ ] `Array()` – Array constructor to create a new array.
+- [x] `Array()` – Array constructor to create a new array.
 
 ## ✅ Adding / Removing Elements
 

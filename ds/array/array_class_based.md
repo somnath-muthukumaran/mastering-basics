@@ -1,9 +1,9 @@
 ## ✅ Array Creation & Inspection
 
-- [ ] `Array.isArray()` – Checks if a value is an array.
+- [x] `Array.isArray()` – Checks if a value is an array.
 - [ ] `Array.of()` – Creates a new array from arguments.
 - [ ] `Array.from()` – Creates an array from iterable or array-like objects.
-- [ ] `Array()` – Array constructor to create a new array.
+- [x] `Array()` – Array constructor to create a new array.
 
 ## ✅ Adding / Removing Elements
 
@@ -11,17 +11,17 @@
 - [x] `pop()` – Removes the last element.
 - [x] `unshift()` – Adds elements to the beginning.
 - [x] `shift()` – Removes the first element.
-- [ ] `splice()` – Adds/removes elements at a specific index.
-- [ ] `slice()` – Returns a shallow copy of a portion of the array.
-- [ ] `concat()` – Merges two or more arrays.
+- [x] `splice()` – Adds/removes elements at a specific index.
+- [x] `slice()` – Returns a shallow copy of a portion of the array.
+- [x] `concat()` – Merges two or more arrays.
 
 ## ✅ Searching & Indexing
 
-- [ ] `includes()` – Checks if an element is present.
-- [ ] `indexOf()` – Returns the first index of an element.
-- [ ] `lastIndexOf()` – Returns the last index of an element.
-- [ ] `find()` – Returns the first element that matches a condition.
-- [ ] `findIndex()` – Returns the index of the first matching element.
+- [x] `includes()` – Checks if an element is present.
+- [x] `indexOf()` – Returns the first index of an element.
+- [x] `lastIndexOf()` – Returns the last index of an element.
+- [x] `find()` – Returns the first element that matches a condition.
+- [x] `findIndex()` – Returns the index of the first matching element.
 
 ## ✅ Iteration
 
@@ -42,7 +42,7 @@
 
 ## ✅ Conversion & Representation
 
-- [ ] `join()` – Joins elements into a string.
+- [x] `join()` – Joins elements into a string.
 - [ ] `toString()` – Converts the array to a string.
 - [ ] `toLocaleString()` – Converts elements to a locale-sensitive string.
 
