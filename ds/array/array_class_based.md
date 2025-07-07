@@ -1,8 +1,8 @@
 ## ✅ Array Creation & Inspection
 
 - [x] `Array.isArray()` – Checks if a value is an array.
-- [ ] `Array.of()` – Creates a new array from arguments.
-- [ ] `Array.from()` – Creates an array from iterable or array-like objects.
+- [x] `Array.of()` – Creates a new array from arguments.
+- [x] `Array.from()` – Creates an array from iterable or array-like objects.
 - [x] `Array()` – Array constructor to create a new array.
 
 ## ✅ Adding / Removing Elements
@@ -25,13 +25,13 @@
 
 ## ✅ Iteration
 
-- [ ] `forEach()` – Executes a function for each element.
-- [ ] `map()` – Creates a new array by applying a function to each element.
-- [ ] `filter()` – Filters elements based on a condition.
+- [x] `forEach()` – Executes a function for each element.
+- [x] `map()` – Creates a new array by applying a function to each element.
+- [x] `filter()` – Filters elements based on a condition.
 - [ ] `reduce()` – Reduces the array to a single value.
 - [ ] `reduceRight()` – Similar to `reduce()` but from right to left.
-- [ ] `some()` – Returns `true` if at least one element passes the condition.
-- [ ] `every()` – Returns `true` if all elements pass the condition.
+- [x] `some()` – Returns `true` if at least one element passes the condition.
+- [x] `every()` – Returns `true` if all elements pass the condition.
 - [ ] `flat()` – Flattens nested arrays into a single array.
 - [ ] `flatMap()` – Maps and flattens one level deep.
 

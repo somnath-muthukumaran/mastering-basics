@@ -1,4 +1,4 @@
-class DSArray<T> {
+class DSArray<T = any> {
   data: T[];
 
   constructor(...args: T[]) {
@@ -243,7 +243,7 @@ class DSArray<T> {
     thisArg?: any
   ) {
     for (let i = 0; i < this.length; i++) {
-      const flag = predicate.call(thisArg, this.data[i], i, this.data);
+      const flag = predicate.call(thisArg || this, this.data[i], i, this.data);
       if (flag) {
         return this.data[i];
       }
@@ -261,7 +261,7 @@ class DSArray<T> {
     thisArg?: any
   ) {
     for (let i = 0; i < this.length; i++) {
-      const flag = predicate.call(thisArg, this.data[i], i, this.data);
+      const flag = predicate.call(thisArg || this, this.data[i], i, this.data);
       if (flag) {
         return i;
       }
@@ -319,6 +319,92 @@ class DSArray<T> {
       }
     }
     return temp;
+  }
+
+  // Iteration
+
+  /**
+   * Performs the specified action for each element in an array.
+   * @param callbackfn — A function that accepts up to three arguments. forEach calls the callbackfn function one time for each element in the array.
+   * @param thisArg — An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
+   */
+  forEach(
+    callbackfn: (value: T, index: number, array: T[]) => void,
+    thisArg?: any
+  ): void {
+    for (let i = 0; i < this.length; i++) {
+      callbackfn.call(thisArg || this, this.data[i], i, this.data);
+    }
+  }
+
+  /**
+   * Returns the elements of an array that meet the condition specified in a callback function.
+   * @param predicate — A function that accepts up to three arguments. The filter method calls the predicate function one time for each element in the array.
+   * @param thisArg — An object to which the this keyword can refer in the predicate function. If thisArg is omitted, undefined is used as the this value.
+   */
+  filter(
+    predicate: (value: T, index: number, array: T[]) => value is T,
+    thisArg?: any
+  ) {
+    const temp = [];
+    let idx = 0;
+    for (let i = 0; i < this.length; i++) {
+      if (predicate.call(thisArg || this, this.data[i], i, this.data)) {
+        temp[idx] = this.data[i];
+        idx++;
+      }
+    }
+    return temp;
+  }
+
+  /**
+   * Calls a defined callback function on each element of an array, and returns an array that contains the results.
+   * @param callbackfn — A function that accepts up to three arguments. The map method calls the callbackfn function one time for each element in the array.
+   * @param thisArg — An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
+   */
+  map(
+    callbackfn: (value: T, index: number, array: T[]) => value is any,
+    thisArg?: any
+  ) {
+    const temp = [];
+    for (let i = 0; i < this.length; i++) {
+      temp[i] = callbackfn.call(thisArg || this, this.data[i], i, this.data);
+    }
+    return temp;
+  }
+
+  /**
+   *Determines whether all the members of an array satisfy the specified test.
+   @paramp redicate — A function that accepts up to three arguments. The every method calls the predicate function for each element in the array until the predicate returns a value which is coercible to the Boolean value false, or until the end of the array.
+   @param thisArg — An object to which the this keyword can refer in the predicate function. If thisArg is omitted, undefined is used as the this value.
+   */
+  every(
+    predicate: (value: T, index: number, array: T[]) => value is T,
+    thisArg?: any
+  ) {
+    for (let i = 0; i < this.length; i++) {
+      if (!predicate.call(thisArg || this, this.data[i], i, this.data)) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  /**
+   * Determines whether the specified callback function returns true for any element of an array.
+   * @param predicate — A function that accepts up to three arguments. The some method calls the predicate function for each element in the array until the predicate returns a value which is coercible to the Boolean value true, or until the end of the array.
+   * @param thisArg — An object to which the this keyword can refer in the predicate function. If thisArg is omitted, undefined is used as the this value.
+   */
+  some(
+    predicate: (value: T, index: number, array: T[]) => unknown,
+    thisArg?: any
+  ) {
+    for (let i = 0; i < this.length; i++) {
+      if (!!predicate.call(thisArg || this, this.data[i], i, this.data)) {
+        return true;
+      }
+    }
+    return false;
   }
 
   get length() {
