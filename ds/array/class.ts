@@ -287,6 +287,40 @@ class DSArray<T> {
     return "[object Array]" === value;
   }
 
+  /**
+   * Returns a new array from a set of elements.
+   * @param items — A set of elements to include in the new array object.
+   */
+  static of(...items: unknown[]) {
+    const arr = [];
+    for (const [index, value] of items.entries()) {
+      arr[index] = value;
+    }
+    return arr;
+  }
+
+  /**
+   * Returns a new array from a set of elements.
+   * @param items — A set of elements to include in the new array object.
+   */
+  static from(iterable: Iterable<unknown> | ArrayLike<unknown>): unknown[] {
+    const temp: unknown[] = [];
+    if (Symbol.iterator in Object(iterable)) {
+      let idx = 0;
+      for (const item of iterable as Iterable<unknown>) {
+        temp[idx] = item;
+        idx++;
+      }
+    } else {
+      if ("length" in iterable && typeof iterable["length"] === "number") {
+        for (let i = 0; i < iterable["length"]; i++) {
+          temp[i] = iterable[i];
+        }
+      }
+    }
+    return temp;
+  }
+
   get length() {
     return this.#findLength(this.data);
   }
