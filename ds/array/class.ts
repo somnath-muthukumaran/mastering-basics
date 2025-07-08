@@ -282,6 +282,11 @@ class DSArray<T = any> {
     return count;
   }
 
+  #checkisArray(target: any) {
+    const value = Object.prototype.toString.call(target);
+    return "[object Array]" === value;
+  }
+
   static isArray(target: any) {
     const value = Object.prototype.toString.call(target);
     return "[object Array]" === value;
@@ -405,6 +410,117 @@ class DSArray<T = any> {
       }
     }
     return false;
+  }
+
+  /**
+   * Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
+   * @param callbackfn — A function that accepts up to four arguments. The reduce method calls the callbackfn function one time for each element in the array.
+   */
+  reduce(
+    callbackfn: (
+      accumulator: T,
+      currentValue: T,
+      currentIndex: number,
+      array: T[]
+    ) => T
+  ): T;
+  /**
+   * Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
+   * @param callbackfn — A function that accepts up to four arguments. The reduce method calls the callbackfn function one time for each element in the array.
+   * @param initialValue — If initialValue is specified, it is used as the initial value to start the accumulation. The first call to the callbackfn function provides this value as an argument instead of an array value.
+   */
+  reduce(
+    callbackfn: (
+      accumulator: any,
+      currentValue: T,
+      currentIndex: number,
+      array: T[]
+    ) => any,
+    initialValue: any
+  ): any;
+  reduce(callbackfn: any, initialValue?: any): any {
+    if (!this.length && initialValue === undefined) {
+      throw TypeError("Reduce of empty array with no initial value");
+    }
+
+    let acc;
+    let startIndex;
+    if (initialValue === undefined) {
+      startIndex = 1;
+      acc = this.data[0];
+    } else {
+      startIndex = 0;
+      acc = initialValue;
+    }
+
+    for (let i = startIndex; i < this.length; i++) {
+      acc = callbackfn(acc, this.data[i], i, this.data);
+    }
+    return acc;
+  }
+
+  reduceRight<U>(
+    callbackfn: (
+      previousValue: U,
+      currentValue: T,
+      currentIndex: number,
+      array: T[]
+    ) => U,
+    initialValue: U
+  ): U;
+  reduceRight<T, U>(
+    callbackfn: (
+      previousValue: T,
+      currentValue: T,
+      currentIndex: number,
+      array: T[]
+    ) => U
+  ): T;
+  reduceRight<U = any>(
+    callbackfn: (
+      previousValue: any,
+      currentValue: any,
+      currentIndex: number,
+      array: T[]
+    ) => U,
+    initialValue?: U
+  ): U {
+    if (!this.length && initialValue === undefined) {
+      throw TypeError("Reduce of empty array with no initial value");
+    }
+
+    let acc: any;
+    let startIndex: number;
+
+    if (initialValue === undefined) {
+      startIndex = this.length - 2;
+      acc = this.data[this.length - 1];
+    } else {
+      startIndex = this.data.length - 1;
+      acc = initialValue;
+    }
+
+    for (let i = startIndex; i >= 0; i--) {
+      acc = callbackfn(acc, this.data[i], i, this.data);
+    }
+
+    return acc;
+  }
+
+  flat(depth: number = 1, arr: any = this.data): any[] {
+    const result = [];
+    if (depth === 0) return arr;
+    for (const item of arr) {
+      if (this.#checkisArray(item)) {
+        const subResult = this.flat(depth - 1, item);
+        for (const subItem of subResult) {
+          result[result.length] = subItem;
+        }
+      } else {
+        result[result.length] = item;
+      }
+    }
+    return result;
   }
 
   get length() {

@@ -1,9 +1,9 @@
 ## ✅ Array Creation & Inspection
 
 - [ ] `Array.isArray()` – Checks if a value is an array.
-- [x] `Array.of()` – Creates a new array from arguments.
-- [ ] `Array.from()` – Creates an array from iterable or array-like objects.
-- [x] `Array()` – Array constructor to create a new array.
+- [] `Array.of()` – Creates a new array from arguments.
+- [] `Array.from()` – Creates an array from iterable or array-like objects.
+- [ ] `Array()` – Array constructor to create a new array.
 
 ## ✅ Adding / Removing Elements
 
@@ -11,21 +11,21 @@
 - [ ] `pop()` – Removes the last element.
 - [ ] `unshift()` – Adds elements to the beginning.
 - [ ] `shift()` – Removes the first element.
-- [ ] `splice()` – Adds/removes elements at a specific index.
+- [ ] `splice()` – Adds/removes elements at a specific inde .
 - [ ] `slice()` – Returns a shallow copy of a portion of the array.
 - [ ] `concat()` – Merges two or more arrays.
 
-## ✅ Searching & Indexing
+## ✅ Searching & Inde ing
 
 - [ ] `includes()` – Checks if an element is present.
-- [ ] `indexOf()` – Returns the first index of an element.
-- [ ] `lastIndexOf()` – Returns the last index of an element.
+- [ ] `inde Of()` – Returns the first inde of an element.
+- [ ] `lastInde Of()` – Returns the last inde of an element.
 - [ ] `find()` – Returns the first element that matches a condition.
-- [ ] `findIndex()` – Returns the index of the first matching element.
+- [ ] `findInde ()` – Returns the inde of the first matching element.
 
 ## ✅ Iteration
 
-- [ ] `forEach()` – Executes a function for each element.
+- [ ] `forEach()` – E ecutes a function for each element.
 - [ ] `map()` – Creates a new array by applying a function to each element.
 - [ ] `filter()` – Filters elements based on a condition.
 - [ ] `reduce()` – Reduces the array to a single value.
@@ -54,5 +54,5 @@
 ## ✅ Iterators (ES6)
 
 - [ ] `entries()` – Returns key/value pairs iterator.
-- [ ] `keys()` – Returns an iterator with the keys (indexes).
+- [ ] `keys()` – Returns an iterator with the keys (inde es).
 - [ ] `values()` – Returns an iterator with the values.
