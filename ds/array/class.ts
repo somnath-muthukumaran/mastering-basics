@@ -1,4 +1,6 @@
-class DSArray<T = any> {
+class DSArray<
+  T extends { toString(): string; toLocaleString(): string } = any
+> {
   data: T[];
 
   constructor(...args: T[]) {
@@ -176,13 +178,6 @@ class DSArray<T = any> {
       }
     }
     return temp;
-  }
-
-  /**
-   * Returns a string representation of an array.
-   */
-  toString() {
-    return this.join(",");
   }
 
   /**
@@ -507,6 +502,12 @@ class DSArray<T = any> {
     return acc;
   }
 
+  /**
+   * Returns a new array with all sub-array elements concatenated into it recursively up to the
+   * specified depth.
+   *
+   * @param depth The maximum recursion depth
+   */
   flat(depth: number = 1, arr: any = this.data): any[] {
     const result = [];
     if (depth === 0) return arr;
@@ -521,6 +522,28 @@ class DSArray<T = any> {
       }
     }
     return result;
+  }
+
+  /**
+   * Calls a defined callback function on each element of an array. Then, flattens the result into
+   * a new array.
+   * This is identical to a map followed by flat with depth 1.
+   *
+   * @param callback A function that accepts up to three arguments. The flatMap method calls the
+   * callback function one time for each element in the array.
+   * @param thisArg An object to which the this keyword can refer in the callback function. If
+   * thisArg is omitted, undefined is used as the this value.
+   */
+  flatMap<U, This = undefined>(
+    callback: (this: This, value: T, index: number, array: T[]) => U,
+    thisArg?: This
+  ): U[] {
+    const temp = [];
+    thisArg = (thisArg || this) as This;
+    for (let i = 0; i < this.length; i++) {
+      temp[temp.length] = callback.call(thisArg, this.data[i], i, this.data);
+    }
+    return this.flat(1, temp);
   }
 
   /**
@@ -598,7 +621,36 @@ class DSArray<T = any> {
     };
   }
 
+  /**
+   * Returns a string representation of an array.
+   */
+  toString(): string {
+    let result = "";
+    for (let i = 0; i < this.length; i++) {
+      result += (this.data[i] ?? "").toString();
+      if (i < this.data.length - 1) result += ",";
+    }
+    return result;
+  }
+
+  /**
+   * Returns a string representation of an array. The elements are converted to string using their toLocaleString methods.
+   */
+  toLocaleString(): string {
+    let result = "";
+    for (let i = 0; i < this.length; i++) {
+      result += (this.data[i] ?? "").toLocaleString();
+      if (i < this.data.length - 1) result += ",";
+    }
+    return result;
+  }
+
+  /**
+   * Gets or sets the length of the array. This is a number one higher than the highest index in the array.
+   */
   get length() {
     return this.#findLength(this.data);
   }
 }
+
+[].length;

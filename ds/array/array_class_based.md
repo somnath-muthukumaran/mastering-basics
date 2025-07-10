@@ -33,7 +33,7 @@
 - [x] `some()` – Returns `true` if at least one element passes the condition.
 - [x] `every()` – Returns `true` if all elements pass the condition.
 - [x] `flat()` – Flattens nested arrays into a single array.
-- [ ] `flatMap()` – Maps and flattens one level deep.
+- [x] `flatMap()` – Maps and flattens one level deep.
 
 ## ✅ Sorting & Reordering
 
@@ -43,8 +43,8 @@
 ## ✅ Conversion & Representation
 
 - [x] `join()` – Joins elements into a string.
-- [ ] `toString()` – Converts the array to a string.
-- [ ] `toLocaleString()` – Converts elements to a locale-sensitive string.
+- [x] `toString()` – Converts the array to a string.
+- [x] `toLocaleString()` – Converts elements to a locale-sensitive string.
 
 ## ✅ Copy & Fill
 
