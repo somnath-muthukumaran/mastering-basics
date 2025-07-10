@@ -523,6 +523,81 @@ class DSArray<T = any> {
     return result;
   }
 
+  /**
+   * Reverses the elements in an array in place.
+   * This method mutates the array and returns a reference to the same array.
+   */
+  reverse() {
+    const temp = [];
+    for (let i = this.length - 1; i >= 0; i++) {
+      temp[i] = this.data[i];
+    }
+    this.data = temp;
+    return this.data;
+  }
+
+  /**
+   * Returns an iterable of keys in the array
+   */
+  keys(): IterableIterator<number> {
+    const self = this;
+    let index = 0;
+    return {
+      [Symbol.iterator]() {
+        return this;
+      },
+      next(): IteratorResult<number> {
+        if (index < self.length) {
+          return { value: index++, done: false };
+        } else {
+          return { value: undefined, done: true };
+        }
+      },
+    };
+  }
+
+  /**
+   * Returns an iterable of key, value pairs for every entry in the array
+   */
+  entries(): IterableIterator<[number, T]> {
+    const self = this;
+    let index = 0;
+    return {
+      [Symbol.iterator]() {
+        return this;
+      },
+      next(): IteratorResult<[number, T]> {
+        if (index < self.length) {
+          const value: [number, T] = [index, self.data[index]];
+          index++;
+          return { value, done: false };
+        } else {
+          return { value: undefined, done: true };
+        }
+      },
+    };
+  }
+
+  /**
+   * Returns an iterable of values in the array
+   */
+  values(): IterableIterator<T> {
+    const self = this;
+    let index = 0;
+    return {
+      [Symbol.iterator]() {
+        return this;
+      },
+      next(): IteratorResult<T> {
+        if (index < self.length) {
+          return { value: self.data[index++], done: false };
+        } else {
+          return { value: undefined, done: true };
+        }
+      },
+    };
+  }
+
   get length() {
     return this.#findLength(this.data);
   }
