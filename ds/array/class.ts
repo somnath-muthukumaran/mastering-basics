@@ -646,6 +646,63 @@ class DSArray<
   }
 
   /**
+   * Changes all array elements from `start` to `end` index to a static `value` and returns the modified array
+   * @param value value to fill array section with
+   * @param start index to start filling the array at. If start is negative, it is treated as
+   * length+start where length is the length of the array.
+   * @param end index to stop filling the array at. If end is negative, it is treated as
+   * length+end.
+   */
+  fill(value: T, start: number = 0, end: number = this.length) {
+    const startIndex =
+      start < 0
+        ? Math.max(this.length + start, 0)
+        : Math.min(start, this.length);
+    const endIndex =
+      end < 0 ? Math.max(this.length + end, 0) : Math.min(end, this.length);
+    for (let i = startIndex; i < endIndex && i < this.length; i++) {
+      this.data[i] = value;
+    }
+    return this.data;
+  }
+
+  /**
+   * Returns the this object after copying a section of the array identified by start and end
+   * to the same array starting at position target
+   * @param target If target is negative, it is treated as length+target where length is the
+   * length of the array.
+   * @param start If start is negative, it is treated as length+start. If end is negative, it
+   * is treated as length+end.
+   * @param end If not specified, length of the this object is used as its default value.
+   */
+  copyWithin(target: number, start: number, end: number = this.length) {
+    const len = this.length;
+    let from = start < 0 ? Math.max(len + start, 0) : Math.min(start, len);
+    let to = target < 0 ? Math.max(len + target, 0) : Math.min(target, len);
+    let finalEnd = end < 0 ? Math.max(len + end, 0) : Math.min(end, len);
+    let count = Math.min(finalEnd - from, len - to);
+    let direction = 1;
+
+    if (from < to && to < from + count) {
+      direction = -1;
+      from += count - 1;
+      to += count - 1;
+    }
+
+    while (count > 0) {
+      if (from in this.data) {
+        this.data[to] = this.data[from];
+      } else {
+        delete this.data[to];
+      }
+      to += direction;
+      from += direction;
+      count--;
+    }
+    return this.data;
+  }
+
+  /**
    * Gets or sets the length of the array. This is a number one higher than the highest index in the array.
    */
   get length() {
@@ -653,4 +710,4 @@ class DSArray<
   }
 }
 
-[].length;
+[].copyWithin;

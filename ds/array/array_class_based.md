@@ -48,8 +48,8 @@
 
 ## ✅ Copy & Fill
 
-- [ ] `copyWithin()` – Copies part of the array to another location.
-- [ ] `fill()` – Fills elements with a static value.
+- [x] `copyWithin()` – Copies part of the array to another location.
+- [x] `fill()` – Fills elements with a static value.
 
 ## ✅ Iterators (ES6)
 
