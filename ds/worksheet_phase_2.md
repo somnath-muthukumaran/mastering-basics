@@ -1,7 +1,5 @@
 ## DSA Learning Phase 2: Arrays, Two Pointers & Sorting
 
-This is Phase 2 of learning Data Structures and Algorithms. Phase 1 covered array class-based methods. This phase focuses on Array concepts, the Two-Pointer technique, and various Sorting Algorithms. Mark the checkboxes [x] as you implement, understand, and practice problems related to each topic.
-
 ## 🎯 Core Concepts & Foundations
 
 - [ ] O(1) - Constant Time
@@ -13,21 +11,8 @@ This is Phase 2 of learning Data Structures and Algorithms. Phase 1 covered arra
 - [ ] O(n!) - Factorial Time
 - [ ] Analyzing space complexity (auxiliary space vs. total space)
 
-## 📚 Arrays: Basic Operations
-
-- [ ] Accessing elements by index
-- [ ] Traversing an array (for loops, forEach, map, reduce in JS)
-- [ ] Insertion at beginning/middle/end (and their complexities)
-- [ ] Deletion at beginning/middle/end (and their complexities)
-- [ ] Searching (Linear Search)
-- [ ] Reversing an array (in-place vs. new array)
-
 ## 📚 Arrays: Advanced Concepts
 
-- [ ] Binary Search - Iterative implementation
-- [ ] Binary Search - Recursive implementation
-- [ ] Binary Search - Variations (finding first/last occurrence, ceiling/floor)
-- [ ] Searching in a rotated sorted array
 - [ ] Prefix Sum - Calculating prefix sums
 - [ ] Prefix Sum - Calculating suffix sums
 - [ ] Prefix Sum - Applying to range sum queries
@@ -39,6 +24,86 @@ This is Phase 2 of learning Data Structures and Algorithms. Phase 1 covered arra
 - [ ] Multi-dimensional Arrays - Searching in a sorted 2D matrix
 - [ ] In-Place Operations - Understanding how to modify arrays without significant extra space
 - [ ] Handling Edge Cases - Empty arrays, single-element arrays, duplicate values, extreme values
+
+## 📚 Stacks: Foundation & Implementation
+
+- [ ] Understanding Stack data structure and LIFO principle
+- [ ] Stack Operations (Push, Pop, Peek, Size, isEmpty)
+- [ ] Implement stack using array
+- [ ] Implement stack using object
+- [ ] Reverse a string using stack
+- [ ] Evaluate postfix expression
+- [ ] Check for balanced parentheses using stack
+- [ ] Convert infix expression to prefix
+- [ ] Implement queue using two stacks
+- [ ] Sort a stack using another stack
+
+## 📚 Stacks: Validity Checks & Matching
+
+- [ ] Valid Parentheses (Leetcode 20)
+- [ ] Remove all adjacent duplicates (Leetcode 1047)
+- [ ] Min Add to Make Parentheses Valid (Leetcode 921)
+- [ ] Backspace String Compare (Leetcode 844)
+- [ ] Check if HTML tags are properly closed
+- [ ] Remove Outermost Parentheses (Leetcode 1021)
+- [ ] Score of Parentheses (Leetcode 856)
+- [ ] Valid Parenthesis String (Leetcode 678)
+- [ ] Minimum Remove to Make Valid Parentheses (Leetcode 1249)
+- [ ] Check if a Parentheses String Can Be Valid (Leetcode 2116)
+
+## � Stacks: Enhanced Stack Designs
+
+- [ ] Min Stack (Leetcode 155)
+- [ ] Max Stack design
+- [ ] Implement Two Stacks in an array
+- [ ] Design Stack that supports getMin in O(1)
+- [ ] Next Greater Element I (Leetcode 496)
+
+## 📚 Stacks: Expression Evaluation
+
+- [ ] Evaluate Reverse Polish Notation (Leetcode 150)
+- [ ] Infix to Postfix Conversion
+- [ ] Basic Calculator I (Leetcode 224)
+- [ ] Decode String (Leetcode 394)
+- [ ] Basic Calculator II (Leetcode 227)
+- [ ] Basic Calculator III (Leetcode 772)
+- [ ] Remove Duplicate Letters (Leetcode 316)
+- [ ] Smallest Subsequence of Distinct Characters (Leetcode 1081)
+- [ ] Parsing A Boolean Expression (Leetcode 1106)
+- [ ] Build an Array With Stack Operations (Leetcode 1441)
+
+## 📚 Stacks: Monotonic Stack Problems
+
+- [ ] Daily Temperatures (Leetcode 739)
+- [ ] Largest Rectangle in Histogram (Leetcode 84)
+- [ ] Next Greater Element II (Leetcode 503)
+- [ ] Trapping Rain Water (Leetcode 42)
+- [ ] Previous Greater Element
+- [ ] Previous Smaller Element
+- [ ] Next Smaller Element
+- [ ] Maximal Rectangle (Leetcode 85)
+- [ ] Sum of Subarray Minimums (Leetcode 907)
+- [ ] Online Stock Span (Leetcode 901)
+- [ ] Remove K Digits (Leetcode 402)
+- [ ] Create Maximum Number (Leetcode 321)
+- [ ] 132 Pattern (Leetcode 456)
+- [ ] Sum of Subarray Ranges (Leetcode 2104)
+
+## 📚 Stacks: Real-World Applications
+
+- [ ] Implement Browser history using stack
+- [ ] Implement Undo/Redo functionality
+- [ ] Backtracking maze solver using stack
+- [ ] Evaluate if string can be generated using push/pop operations
+- [ ] Simplify Path (Leetcode 71)
+- [ ] Decode String (Leetcode 394)
+- [ ] Asteroid Collision (Leetcode 735)
+- [ ] Exclusive Time of Functions (Leetcode 636)
+- [ ] Baseball Game (Leetcode 682)
+- [ ] Validate Stack Sequences (Leetcode 946)
+- [ ] Find the Most Competitive Subsequence (Leetcode 1673)
+- [ ] Car Fleet (Leetcode 853)
+- [ ] Dinner Plate Stacks (Leetcode 1172)
 
 ## ✌️ Two-Pointer Technique: Ends Moving Inwards
 
@@ -90,27 +155,3 @@ This is Phase 2 of learning Data Structures and Algorithms. Phase 1 covered arra
 - [ ] Heap Sort - Implement heapSort
 - [ ] Heap Sort - Analyze O(n \log n) time complexity (all cases)
 - [ ] Heap Sort - Analyze O(1) space complexity (in-place)
-
-## 🧮 Sorting Algorithms: Non-Comparison Based
-
-- [ ] Counting Sort - Understand concept and constraints (integer range)
-- [ ] Counting Sort - Implement in JavaScript
-- [ ] Counting Sort - Analyze O(n + k) time complexity
-- [ ] Radix Sort - Understand concept (digit-by-digit sorting)
-- [ ] Radix Sort - Implement in JavaScript (often uses Counting Sort as a subroutine)
-- [ ] Radix Sort - Analyze O(nk) time complexity
-- [ ] Bucket Sort - Understand concept and constraints (uniform distribution)
-- [ ] Bucket Sort - Implement in JavaScript
-- [ ] Bucket Sort - Analyze O(n + k) average-case time complexity
-
-## 💻 JavaScript Array Built-in Methods
-
-- [ ] `sort()` – Sorts the elements in place.
-
-## 💡 General Interview Preparation Tips
-
-- [ ] Practice explaining algorithms verbally
-- [ ] Practice writing clean, readable, and well-commented code
-- [ ] Test your code with various edge cases
-- [ ] Understand when to use built-in sort methods (Array.prototype.sort() in JS) and when to implement your own
-- [ ] Consider alternative approaches and discuss their trade-offs
