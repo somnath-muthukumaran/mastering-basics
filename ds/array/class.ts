@@ -1,4 +1,4 @@
-class DSArray<
+export class DSArray<
   T extends { toString(): string; toLocaleString(): string } = any
 > {
   data: T[];

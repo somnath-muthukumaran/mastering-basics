@@ -2,13 +2,13 @@
 
 ## 🎯 Core Concepts & Foundations
 
-- [ ] O(1) - Constant Time
-- [ ] O(\log n) - Logarithmic Time
-- [ ] O(n) - Linear Time
-- [ ] O(n \log n) - Linearithmic Time
-- [ ] O(n^2) - Quadratic Time
-- [ ] O(2^n) - Exponential Time
-- [ ] O(n!) - Factorial Time
+- [x] O(1) - Constant Time
+- [x] O(\log n) - Logarithmic Time
+- [x] O(n) - Linear Time
+- [x] O(n \log n) - Linearithmic Time
+- [x] O(n^2) - Quadratic Time
+- [x] O(2^n) - Exponential Time
+- [x] O(n!) - Factorial Time
 - [ ] Analyzing space complexity (auxiliary space vs. total space)
 
 ## 📚 Arrays: Advanced Concepts
@@ -27,13 +27,13 @@
 
 ## 📚 Stacks: Foundation & Implementation
 
-- [ ] Understanding Stack data structure and LIFO principle
-- [ ] Stack Operations (Push, Pop, Peek, Size, isEmpty)
-- [ ] Implement stack using array
-- [ ] Implement stack using object
-- [ ] Reverse a string using stack
-- [ ] Evaluate postfix expression
-- [ ] Check for balanced parentheses using stack
+- [x] Understanding Stack data structure and LIFO principle
+- [x] Stack Operations (Push, Pop, Peek, Size, isEmpty)
+- [x] Implement stack using array
+- [x] Implement stack using object
+- [x] Reverse a string using stack
+- [x] Evaluate postfix expression
+- [x] Check for balanced parentheses using stack
 - [ ] Convert infix expression to prefix
 - [ ] Implement queue using two stacks
 - [ ] Sort a stack using another stack
