@@ -1,4 +1,4 @@
-class Node<T = any> {
+export class Node<T = any> {
   data!: T;
   next: Node<T> | null = null;
   constructor(value: T) {
