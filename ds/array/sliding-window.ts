@@ -100,7 +100,7 @@ class SlindingWindow {
    * Problem 1: Longest Substring Without Repeating Characters
    */
   longestSubStringWithoutRepeatingCharacters() {
-    const input = "abcabcbb";
+    const input = this.targetStr;
     let maxSubLen = 0;
     let left = 0;
     const seenList = new Set();
@@ -118,10 +118,43 @@ class SlindingWindow {
   /**
    * Problem 2: Smallest Subarray with a Sum ≥ S
    */
-  smallestSubArrayWithASum() {}
+  smallestSubArrayWithASum(s: number) {
+    const arr = this.targetArr;
+    let minSubLen = Infinity;
+    let left = 0;
+    let windowSum = 0;
+    for (let right = 0; right < arr.length; right++) {
+      windowSum += arr[right];
+      while (windowSum >= s) {
+        minSubLen = Math.min(minSubLen, right - left + 1);
+        windowSum -= arr[left];
+        left++;
+      }
+    }
+    return minSubLen === Infinity ? 0 : minSubLen;
+  }
 
   /**
    * Problem 3: Longest Substring with At Most K Distinct Characters
    */
-  longestSubStringWithAtMostKDistinctCharacters() {}
+  longestSubStringWithAtMostKDistinctCharacters(k: number) {
+    const input = "abcabcbb";
+    let maxLen = 0;
+    let left = 0;
+    const frequency = new Map();
+    for (let right = 0; right < input.length; right++) {
+      const letter = input[right];
+      frequency.set(letter, (frequency.get(letter) || 0) + 1);
+      while (frequency.size > k) {
+        const exit = input[left];
+        frequency.set(exit, (frequency.get(exit) || 0) - 1);
+        if (frequency.get(exit) <= 0) {
+          frequency.delete(exit);
+        }
+        left++;
+      }
+      maxLen = Math.max(maxLen, right - left + 1);
+    }
+    return maxLen;
+  }
 }
