@@ -13,11 +13,11 @@
 
 ## 📚 Arrays: Advanced Concepts
 
-- [ ] Prefix Sum - Calculating prefix sums
-- [ ] Prefix Sum - Calculating suffix sums
-- [ ] Prefix Sum - Applying to range sum queries
-- [ ] Sliding Window - Fixed-size sliding window problems (e.g., max sum subarray of size K)
-- [ ] Sliding Window - Dynamic-size sliding window problems (e.g., longest substring without repeating characters)
+- [x] Prefix Sum - Calculating prefix sums
+- [x] Prefix Sum - Calculating suffix sums
+- [x] Prefix Sum - Applying to range sum queries
+- [x] Sliding Window - Fixed-size sliding window problems (e.g., max sum subarray of size K)
+- [x] Sliding Window - Dynamic-size sliding window problems (e.g., longest substring without repeating characters)
 - [ ] Multi-dimensional Arrays - Traversing 2D arrays (row-major, column-major)
 - [ ] Multi-dimensional Arrays - Matrix rotation (90 degrees clockwise/counter-clockwise)
 - [ ] Multi-dimensional Arrays - Spiral matrix traversal
