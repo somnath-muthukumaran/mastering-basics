@@ -40,9 +40,32 @@ class SlindingWindow {
   }
 
   /**
+   * const arr = [2, 1, 5, 1, 3, 2];
+   * const k = 3;
+   *
    * Problem 1: Maximum Sum Subarray of Size K
    */
-  maxSumSubArrayOfK() {}
+  maxSumSubArrayOfK(wSize: number) {
+    if (this.targetArr.length < wSize) {
+      return 0;
+    }
+
+    let windowSum = 0;
+    let maxSum = 0;
+    for (let i = 0; i < wSize; i++) {
+      windowSum += this.targetArr[i];
+    }
+    maxSum = windowSum;
+    for (let i = wSize; i < this.targetArr.length; i++) {
+      const exit = this.targetArr[i - wSize];
+      const entry = this.targetArr[i];
+      windowSum += entry - exit;
+      if (maxSum < windowSum) {
+        maxSum = windowSum;
+      }
+    }
+    return maxSum;
+  }
 
   /**
    *  Problem 2: First Negative Number in Every Window of Size K
@@ -158,3 +181,6 @@ class SlindingWindow {
     return maxLen;
   }
 }
+
+const sw = new SlindingWindow(undefined, [2, 1, 5, 1, 3, 2]);
+console.log(sw.maxSumSubArrayOfK(3));
