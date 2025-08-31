@@ -147,3 +147,24 @@ export function lengthOfLongestSubstringKDistinct(
   // TODO: Implement longest substring with at most K distinct characters using two pointers
   return 0;
 }
+
+function mergeSorted(numsM: number[], m: number, numsN: number[], n: number) {
+  let last = numsM.length - 1;
+  let targetMax = m - 1;
+  let valueMax = n - 1;
+
+  while (targetMax >= 0 && valueMax >= 0) {
+    if (numsM[targetMax] > numsN[valueMax]) {
+      numsM[last] = numsM[targetMax];
+      targetMax--;
+    } else {
+      numsM[last] = numsN[valueMax];
+      valueMax--;
+    }
+    last--;
+  }
+  while (valueMax >= 0) {
+    numsM[last] = numsN[valueMax--];
+    last--;
+  }
+}

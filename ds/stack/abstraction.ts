@@ -1,3 +1,8 @@
+/**
+ * A generic interface for stack data structures.
+ * Provides methods to interact with the stack, such as adding, removing, and inspecting elements.
+ * @template T - The type of elements stored in the stack.
+ */
 export interface StackAbstraction<T> {
   /**
    * Returns the top element of the stack without removing it.
