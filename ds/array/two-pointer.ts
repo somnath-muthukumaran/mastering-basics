@@ -85,11 +85,23 @@ export function sortColors(nums: number[]): void {
 
 /**
  * Move Zeroes – Shift zeroes to end in-place using two pointers.
+ * Leetcode 283
+ * Input: nums = [0,1,0,3,12]
+ * Output: [1,3,12,0,0]
  * @param {number[]} nums
  * @returns {void}
  */
 export function moveZeroes(nums: number[]): void {
-  // TODO: Implement move zeroes using two pointers
+  let slow = 0;
+  let fast = 1;
+  while (slow < nums.length) {
+    if (nums[fast] !== 0) {
+      const temp = nums[fast];
+      nums[fast] = nums[slow];
+      nums[slow] = temp;
+      slow++;
+    }
+  }
 }
 
 /**

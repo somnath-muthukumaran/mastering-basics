@@ -6,12 +6,12 @@ export interface ILinkedList<T> {
   /**
    * The head node of the linked list.
    */
-  head: Node<T> | null;
+  head: ListNode<T> | null;
 
   /**
    * The tail node of the linked list.
    */
-  tail: Node<T> | null;
+  tail: ListNode<T> | null;
 
   /**
    * The number of elements in the linked list.
@@ -57,7 +57,7 @@ export interface ILinkedList<T> {
    * @param predicate - A function to test each element.
    * @returns The first node that satisfies the predicate, or null if none found.
    */
-  find?(predicate: (value: T) => boolean): Node<T> | null;
+  find?(predicate: (value: T) => boolean): ListNode<T> | null;
 
   /**
    * Converts the linked list to an array.
@@ -69,25 +69,27 @@ export interface ILinkedList<T> {
    * Prints the elements of the linked list.
    */
   print?(): void;
+
+  reverse?(): void;
 }
 
-export class Node<T = any> {
+export class ListNode<T = any> {
   data!: T;
-  next: Node<T> | null = null;
+  next: ListNode<T> | null = null;
   constructor(value: T) {
     this.data = value;
     this.next = null;
   }
 }
 export class SingleLinkedListWithoutTail<T = any> {
-  head!: Node<T> | null;
+  head!: ListNode<T> | null;
   constructor(value: T) {
-    this.head = new Node(value);
+    this.head = new ListNode(value);
   }
 
   append(value: T) {
     // time complexity is high due to traversal
-    const newNode = new Node(value);
+    const newNode = new ListNode(value);
     if (!this.head) {
       this.head = newNode;
       return;
@@ -101,11 +103,11 @@ export class SingleLinkedListWithoutTail<T = any> {
 }
 
 export class SingleLinkedListWithTail<T = any> implements ILinkedList<T> {
-  head!: Node<T> | null;
-  tail!: Node<T> | null;
+  head!: ListNode<T> | null;
+  tail!: ListNode<T> | null;
   private _length = 0;
   constructor(value: T) {
-    const node = new Node(value);
+    const node = new ListNode(value);
     this.head = node;
     this.tail = node;
   }
@@ -127,7 +129,7 @@ export class SingleLinkedListWithTail<T = any> implements ILinkedList<T> {
   clear(): void {
     throw new Error("Method not implemented.");
   }
-  find?(predicate: (value: T) => boolean): Node<T> | null {
+  find?(predicate: (value: T) => boolean): ListNode<T> | null {
     throw new Error("Method not implemented.");
   }
   toArray?(): T[] {
@@ -138,7 +140,7 @@ export class SingleLinkedListWithTail<T = any> implements ILinkedList<T> {
   }
 
   prepend(value: T) {
-    const newNode = new Node(value);
+    const newNode = new ListNode(value);
     if (!this.head) {
       this.head = newNode;
       this.tail = newNode;
@@ -150,7 +152,7 @@ export class SingleLinkedListWithTail<T = any> implements ILinkedList<T> {
 
   append(value: T) {
     // reduced time complexity due to the tail O(1)
-    const newNode = new Node(value);
+    const newNode = new ListNode(value);
     this.tail!.next = newNode;
     this.tail = newNode;
   }
