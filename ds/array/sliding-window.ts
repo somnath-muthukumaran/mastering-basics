@@ -184,3 +184,26 @@ class SlindingWindow {
 
 const sw = new SlindingWindow(undefined, [2, 1, 5, 1, 3, 2]);
 console.log(sw.maxSumSubArrayOfK(3));
+
+const str = "IceCreAm";
+
+function reverseVowels(s: string): string {
+  let right = s.length - 1;
+  let left = 0;
+  const vowels = new Set(["a", "e", "i", "o", "u"]);
+  const arr = s.split("");
+  while (left < right) {
+    while (left < right && !vowels.has(s[left].toLowerCase())) {
+      left++;
+    }
+    while (left < right && !vowels.has(s[right].toLowerCase())) {
+      right--;
+    }
+
+    [arr[left], arr[right]] = [arr[right], arr[left]];
+    left++;
+    right--;
+  }
+  return arr.join("");
+}
+console.log("output", reverseVowels(str));
